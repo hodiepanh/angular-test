@@ -14,7 +14,7 @@ The url: /dashboard
 </div>
 
 <div align="center">
-  <img src="./images/item-hover.png" />
+  <img src="./images/item-hover.gif" />
   <p>Hover on a item</p>
 </div>
 
