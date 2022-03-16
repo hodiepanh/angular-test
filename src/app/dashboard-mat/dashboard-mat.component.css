@@ -1,3 +1,13 @@
+.searchbar-wrapper
+{
+  display: flex;
+  justify-content: flex-end;
+}
+.searchbar {
+  padding: 5px;
+  width: 30vw;
+}
+
 .grid-container {
   margin: 10px 50px;
 }

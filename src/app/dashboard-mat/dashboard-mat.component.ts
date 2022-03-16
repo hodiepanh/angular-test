@@ -36,6 +36,9 @@ export class DashboardMatComponent {
   //get data of created item
   createValue!:Item;
 
+  //searchterm
+  searchTerm!:string;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private shareService: SharedServiceService,
@@ -50,8 +53,6 @@ export class DashboardMatComponent {
     //auto update edited item
     this.updateInfo(this.shareService.id)
 
-    //search function
-    this.search()
   }
 
   //pass the data into the dashboard
@@ -98,17 +99,8 @@ export class DashboardMatComponent {
     this.value.splice(index,1)
   }
 
+  //search
   search(){
-    this.activeRoute.params.subscribe(params => {
-      if(params['searchTerm']){
-        //filter the item with the matching name
-        //then update into the value (this is shown in the dashboard)
-        this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(params['searchTerm'].toLowerCase()));
-        if(this.value.length==0) //if nothing found
-        {
-          alert("cannot find item")
-        }
-      }
-    })
+    this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(this.searchTerm))
   }
 }
