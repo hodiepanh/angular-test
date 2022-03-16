@@ -6,17 +6,19 @@ import { Item } from './item-model/item-interface';
   providedIn: 'root'
 })
 export class SharedServiceService {
-  getvalue ="";
-  editvalue=""
-  name = ""
-  color= ""
-  comment=""
-  id:number=0;
+  //getvalue ="";
+  //editvalue=""
+  //name = ""
+  //color= ""
+  //comment=""
+  
+  id!:number;
 
   create_value!:Item; 
   edit_value!:Item;
   update_value!:Item;
-  searchTerm!:string;
+  //searchTerm!:string;
+  create_length!:number;
 
   //newValue=""
   //get added item data
@@ -24,12 +26,12 @@ export class SharedServiceService {
   //createCast = this.create_value.asObservable()
 
   mockValueService: Item[]=[
-    { title: "red", img: "imageOne" },
-    { title: "blue", img: "imgTwo" }
+    { id:0, title: "red", img: "imageOne" },
+    { id:1, title: "blue", img: "imgTwo" }
   ]
 
-  private test_value = new BehaviorSubject<Item>({title:"",img:""})
-  cast = this.test_value.asObservable()
+  //private test_value = new BehaviorSubject<Item>({title:"",img:""})
+  //cast = this.test_value.asObservable()
   
   constructor() { }
   
@@ -39,9 +41,9 @@ export class SharedServiceService {
     console.log("something")
   }
 
-  editValue(newItemValue:Item){
-    this.test_value.next(newItemValue)
-  }
+  //editValue(newItemValue:Item){
+  //  this.test_value.next(newItemValue)
+  //}
 
   getAll(): Item[]{
     return this.mockValueService

@@ -11,21 +11,25 @@ import { Item } from '../item-model/item-interface';
 export class CreateComponent implements OnInit {
 
   formCreate!: FormGroup;
+  form_id!:number;
+
   constructor(private formBuilder: FormBuilder, private shareService: SharedServiceService) { }
 
   //test_value: string = ""
-  create_value!: Item;
-  creatNewValue !:Item; 
+  //create_value!: Item;
+  //creatNewValue !:Item; 
 
   ngOnInit(): void {
     this.formCreate = this.formBuilder.group({
       itemTitle: ['', Validators.required],
-      //itemColor: ['', Validators.required],
+      itemColor: ['', Validators.required],
       itemImage: ['', Validators.nullValidator]
     })
     //this.shareService.getvalue = this.formCreate.value;
     //this.shareService.cast.subscribe(test_value => this.test_value = test_value)
     //this.shareService.createCast.subscribe(create_value=>this.create_value=create_value)
+    this.form_id = this.shareService.create_length
+    //console.log(this.form_id)
 
   }
 
@@ -33,7 +37,9 @@ export class CreateComponent implements OnInit {
     //creat new card
     //this.shareService.getvalue = this.formCreate.value;
     //this.create_value = this.formCreate.value.itemTitle;
-    this.shareService.create_value = {title:this.formCreate.value.itemTitle,img:this.formCreate.value.itemImage}
+    //console.log(this.shareService)
+    //this.form_id = this.shareService.create_length
+    this.shareService.create_value = {id: this.form_id, title:this.formCreate.value.itemTitle,img:this.formCreate.value.itemImage}
     //this.shareService.createCast.subscribe(create_value => this.create_value= create_value)
     //this.shareService.createValue(this.create_value)
     //console.log(this.shareService.create_value)

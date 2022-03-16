@@ -6,8 +6,8 @@
 
 <form [formGroup]="formEdit">
     <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput formControlName="itemName">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="itemTitle">
     </mat-form-field>
     <!-- <mat-form-field appearance="fill">
         <mat-label>Select</mat-label>
@@ -17,11 +17,11 @@
         </mat-select>
     </mat-form-field> -->
     <mat-form-field appearance="fill">
-        <mat-label>Textarea</mat-label>
-        <textarea matInput formControlName="itemComment"></textarea>
+        <mat-label>Image</mat-label>
+        <textarea matInput formControlName="itemImage"></textarea>
     </mat-form-field>
 </form>
 <div class="button-class">
-    <button mat-flat-button color="primary" routerLink="/dashboard" (click)="editValueTest(id)">Update</button>
+    <button mat-flat-button color="primary" routerLink="/dashboard" (click)="updateEditValue(id)">Update</button>
     <button mat-flat-button color="primary" routerLink="/dashboard">Cancel</button>
 </div>

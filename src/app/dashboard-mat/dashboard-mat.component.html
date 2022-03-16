@@ -10,7 +10,7 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            <div>Card: {{i}}</div>
+            <div>Card: {{detail.id}}</div>
             <!-- {{card.title}} -->
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
@@ -22,9 +22,8 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
           <div>Name: {{detail.title}}</div>
-          <div>Color: {{detail.img}}</div>
+          <div>Image: {{detail.img}}</div>
           <!--content here-->
           <!-- <div class="value">
             <div class="detail" *ngFor="let detail of value">

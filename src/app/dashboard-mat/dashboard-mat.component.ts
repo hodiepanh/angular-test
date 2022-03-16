@@ -5,15 +5,15 @@ import { SharedServiceService } from '../shared-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../item-model/item-interface';
 
-const mockValue = [
-  { name: "name", color: "red", itemcmt: "comment" },
-  { name: "name", color: "blue", itemcmt: "comment 2" }
-]
+// const mockValue = [
+//   { name: "name", color: "red", itemcmt: "comment" },
+//   { name: "name", color: "blue", itemcmt: "comment 2" }
+// ]
 
-const mockValueExtra: Item[]=[
-  { title: "red", img: "imageOne" },
-  { title: "blue", img: "imgTwo" }
-]
+// const mockValueExtra: Item[]=[
+//   { title: "red", img: "imageOne" },
+//   { title: "blue", img: "imgTwo" }
+// ]
 
 
 @Component({
@@ -62,6 +62,8 @@ export class DashboardMatComponent {
     //alert("dashboard"+this.shareService.id)
     //console.log(this.shareService.id)
     this.search()
+    //console.log(this.value.length)
+    this.shareService.create_length =this.value.length;
   }
 
   //value = mockValueExtra;
@@ -70,8 +72,8 @@ export class DashboardMatComponent {
 
 
   createValue!:Item;
-  editValue: any;
-  test_value:string=""
+  //editValue: any;
+  //test_value:string=""
   // itemname: string = ""
   // itemcolor: string = ""
   // itemcmt: string = ""
@@ -107,14 +109,14 @@ export class DashboardMatComponent {
       //     this.value.push({ name: this.itemname, color: this.itemcolor, itemcmt: this.itemcmt })
       //   }
       // }
-      this.shareService.create_value = {title:"",img:""}
+      this.shareService.create_value = {id:0, title:"",img:""}
       // this.shareService.getvalue=''
       //console.log(this.itemname)
   }
   //onselect
   onSelect(value: any) {
     this.router.navigate(['/edit', this.value.indexOf(value)]);
-    this.shareService.edit_value = {title: value.title, img: value.img};
+    this.shareService.edit_value = {id: value.id, title: value.title, img: value.img};
     //this.itemId = this.value.indexOf(value);
     //this.shareService.name = value.name;
     //this.shareService.color = value.color;
@@ -175,7 +177,12 @@ export class DashboardMatComponent {
     this.activeRoute.params.subscribe(params => {
       if(params['searchTerm']){
         this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(params['searchTerm'].toLowerCase()));
-        this.shareService.searchTerm = params['searchTerm']
+        //console.log(this.value)
+        if(this.value.length==0)
+        {
+          alert("cannot find item")
+        }
+        //this.shareService.searchTerm = params['searchTerm']
         //this.value.filter(value => value.title.toLowerCase().includes(params['searchTerm'].toLowerCase()));
         //console.log(params['searchTerm'])
       }

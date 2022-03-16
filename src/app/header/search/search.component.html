@@ -1,5 +1,4 @@
-<mat-form-field>
-    <input type="text" matInput placeholder="Search" [(ngModel)]="searchTerm"
-    (change)="search()">
-    <!-- <button mat-stroked-button color="primary" (click)="search()">Search</button> -->
+<mat-form-field appearance="outline">
+    <!-- <mat-label>Search Something</mat-label> -->
+    <input type="search" matInput placeholder="Search" [(ngModel)]="searchTerm" (change)="search()">
 </mat-form-field>

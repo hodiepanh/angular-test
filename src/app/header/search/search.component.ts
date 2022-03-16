@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SharedServiceService } from 'src/app/shared-service.service';
+//import { SharedServiceService } from 'src/app/shared-service.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
   searchTerm!:string;
 
   constructor(private activeRoute: ActivatedRoute,
-    private shareService: SharedServiceService,
+    //private shareService: SharedServiceService,
     private router: Router) { }
 
   ngOnInit(): void {
