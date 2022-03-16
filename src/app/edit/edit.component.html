@@ -1,22 +1,27 @@
 <h1>Edit item</h1>
+<!-- <h1>{{test_value}}</h1> -->
+<!-- <h1>{{id}}</h1> -->
+<!-- <input type="text" [(ngModel)]="editNewValue"> -->
+<!-- <button mat-flat-button color="primary" (click)="editValueTest()">Update</button> -->
+
 <form [formGroup]="formEdit">
     <mat-form-field appearance="fill">
         <mat-label>Input</mat-label>
         <input matInput formControlName="itemName">
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
         <mat-label>Select</mat-label>
         <mat-select formControlName= "itemColor">
             <mat-option value="blue">Blue</mat-option>
             <mat-option value="red">Red</mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field appearance="fill">
         <mat-label>Textarea</mat-label>
         <textarea matInput formControlName="itemComment"></textarea>
     </mat-form-field>
 </form>
 <div class="button-class">
-    <button mat-flat-button color="primary" routerLink="/dashboard" (click)="updateValue()">Update</button>
+    <button mat-flat-button color="primary" routerLink="/dashboard" (click)="editValueTest(id)">Update</button>
     <button mat-flat-button color="primary" routerLink="/dashboard">Cancel</button>
 </div>

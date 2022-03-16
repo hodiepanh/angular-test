@@ -1,7 +1,9 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
+  <!-- <h1>{{test_value}}</h1> -->
   <!-- <button mat-stroked-button color="primary" (click)="updateInfo()">Update Edit</button> -->
   <button mat-stroked-button color="primary" routerLink="/create">Add new item</button>
+  <button mat-stroked-button color="primary" (click)="search()">Search</button>
   <!-- <button mat-stroked-button color="primary" (click)="addNew()">Load new item</button> -->
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let detail of value, let i = index">
@@ -21,8 +23,8 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>Card Content Here</div>
-          <div>Name: {{detail.name}}</div>
-          <div>Color: {{detail.color}}</div>
+          <div>Name: {{detail.title}}</div>
+          <div>Color: {{detail.img}}</div>
           <!--content here-->
           <!-- <div class="value">
             <div class="detail" *ngFor="let detail of value">
@@ -31,7 +33,7 @@
           </div> -->
           <!-- <button mat-stroked-button color="primary" (click)="getDetail()">Item</button> -->
           <button mat-stroked-button color="primary" (click)="onSelect(detail)">Edit</button>
-          <button mat-stroked-button color="primary" (click)="updateInfo(i)">Update</button>
+          <!-- <button mat-stroked-button color="primary" (click)="updateInfo(i)">Update</button> -->
           <button mat-stroked-button color="primary" (click)="removeItem(i)">Remove</button>
         </mat-card-content>
       </mat-card>

@@ -14,12 +14,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule} from '@angular/material/select';
+import { MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule} from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
 
 
 import { CreateComponent } from './create/create.component';
@@ -51,7 +52,8 @@ import { SharedServiceService } from './shared-service.service';
     MatSelectModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   providers: [SharedServiceService],
   bootstrap: [AppComponent]
