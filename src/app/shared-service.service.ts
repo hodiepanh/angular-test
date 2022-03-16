@@ -6,51 +6,25 @@ import { Item } from './item-model/item-interface';
   providedIn: 'root'
 })
 export class SharedServiceService {
-  //getvalue ="";
-  //editvalue=""
-  //name = ""
-  //color= ""
-  //comment=""
   
-  id!:number;
-
+  //data to create item
   create_value!:Item; 
-  edit_value!:Item;
-  update_value!:Item;
-  //searchTerm!:string;
   create_length!:number;
 
-  //newValue=""
-  //get added item data
-  //private create_value = new BehaviorSubject<Item>({id:0,title:"",img:""})
-  //createCast = this.create_value.asObservable()
+  //date to edit item
+  edit_value!:Item;
+  id!:number;
+  update_value!:Item;
 
   mockValueService: Item[]=[
     { id:0, title: "red", img: "imageOne" },
     { id:1, title: "blue", img: "imgTwo" }
   ]
-
-  //private test_value = new BehaviorSubject<Item>({title:"",img:""})
-  //cast = this.test_value.asObservable()
   
   constructor() { }
-  
-  getValue() : any{
-    //return "this.message"
-    //return this.getvalue;
-    console.log("something")
-  }
 
-  //editValue(newItemValue:Item){
-  //  this.test_value.next(newItemValue)
-  //}
-
+  //for filter function
   getAll(): Item[]{
     return this.mockValueService
   }
-  
-  //dont know will work or not lmao
-  //createValue(newItem:Item){
-  //  this.create_value.next(newItem)
-  //}
 }

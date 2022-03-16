@@ -20,6 +20,22 @@
   text-align: center;
 }
 
-.dashboard-card-content button {
+.dashboard-card-content div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+.dashboard-card-content .button-class {
+  visibility: hidden;
+}
+
+.dashboard-card-content:hover .button-class {
   display: inline;
+  visibility: visible;
+}
+
+.dashboard-card-content .button-class button{
+  margin: 10px;
 }

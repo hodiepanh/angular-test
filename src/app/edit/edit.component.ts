@@ -15,61 +15,30 @@ export class EditComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,
     private shareService: SharedServiceService,
     private formBuilder: FormBuilder) { }
-
-  //inputName: string = ""
-  //inputColor: string =""
-  //test_value: string = ""
-  //editNewValue: string =""
   
-  id:number = 0
+  //to pass into the update function
+  id!:number;
 
-  testItem!:Item;
   inputEdit!:Item;
   editNewItem!:Item;
-  editTitle!:string;
-  editImg!:string;
 
   ngOnInit(): void {
-    //console.log(this.activeRoute.snapshot.paramMap.get('id'))
-    //console.log(this.shareService.editvalue)
     this.shareService.id = parseInt(this.activeRoute.snapshot.paramMap.get('id')!)
-    //alert(this.id)
+    //read data from dashboard to edit window
+    //paste data into form
     this.inputEdit = this.shareService.edit_value
-    //console.log(this.inputEdit)
-    //this.inputName = this.shareService.name;
-    //this.inputColor = this.shareService.color;
-    //this.id = this.shareService.id;
-    //alert(this.id)
     this.formEdit = this.formBuilder.group({
       itemTitle: [this.inputEdit.title, Validators.required],
-      //itemColor: [this.inputColor, Validators.required],
       itemImage: [this.inputEdit.img, Validators.nullValidator]
     })
-
-    //this.shareService.cast.subscribe(test_value => this.test_value = test_value)
-    //this.shareService.cast.subscribe(test_value => this.testItem = test_value)
+  //reset
   this.shareService.update_value = {id: 0, title:"",img:""}
-  //console.log(this.editNewItem)
-    //this.shareService.cast.subscribe(id=>this.id=id)
-    //alert(this.test_value)
   }
-
-  // updateValue(){
-  //   this.shareService.editvalue = this.formEdit.value;
-  //   //this.shareService.cast.subscribe(this.formEdit.value => {this.shareService.editvalue  = this.formEdit.value)
-  //   //alert(this.test_value)
-  //   //console.log(this.shareService.editvalue)
-  //   //this.formEdit.controls['itemName'].setValue(this.inputName)
-  // }
 
   updateEditValue(index:number){
-    this.editNewItem = {id: 2, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
-    //this.shareService.editValue(this.editNewItem)
+    //pass the edited data
+    //send to dashboard
+    this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
     this.shareService.update_value= this.editNewItem;
-    //console.log(this.shareService.update_value)
-    //console.log(this.test_value)
-    //alert(this.test_value)
   }
-  //fill info
-
 }
