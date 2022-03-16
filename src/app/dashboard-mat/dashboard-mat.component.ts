@@ -5,16 +5,6 @@ import { SharedServiceService } from '../shared-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../item-model/item-interface';
 
-// const mockValue = [
-//   { name: "name", color: "red", itemcmt: "comment" },
-//   { name: "name", color: "blue", itemcmt: "comment 2" }
-// ]
-
-// const mockValueExtra: Item[]=[
-//   { title: "red", img: "imageOne" },
-//   { title: "blue", img: "imgTwo" }
-// ]
-
 
 @Component({
   selector: 'app-dashboard-mat',
@@ -43,92 +33,53 @@ export class DashboardMatComponent {
     })
   );
 
-  create_value!:Item; 
+  //get data of created item
+  createValue!:Item;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private shareService: SharedServiceService,
     private router: Router,
     private activeRoute: ActivatedRoute) {
-    //auto update created item
-    this.addNew()
+
     
-    //sync edited data
-    //this.shareService.cast.subscribe(test_value => this.test_value = test_value)
-    //this.shareService.createCast.subscribe(create_value => this.create_value=create_value)
-    //console.log(this.create_value)
-    //console.log(this.editValue.itemName)
+      //auto update created item
+    this.addNew()
+    this.shareService.create_length =this.value.length; //auto increment id of created item
+    
+    //auto update edited item
     this.updateInfo(this.shareService.id)
-    //alert("dashboard"+this.shareService.id)
-    //console.log(this.shareService.id)
+
+    //search function
     this.search()
-    //console.log(this.value.length)
-    this.shareService.create_length =this.value.length;
   }
 
-  //value = mockValueExtra;
+  //pass the data into the dashboard
   value = this.shareService.mockValueService;
-  //value = this.shareService.getAll()
 
-
-  createValue!:Item;
-  //editValue: any;
-  //test_value:string=""
-  // itemname: string = ""
-  // itemcolor: string = ""
-  // itemcmt: string = ""
-
-  itemId!:number;
-  itemTitle!:string;
-  itemImage!:string;
-
-  //id:number = 0
-
-  // ngOnInIt(){
-  //   this.shareService.cast.subscribe(test_value => this.test_value = test_value)
-  // }
-
-  //add new item
   addNew() {
       if(this.shareService.create_value!=undefined)
       {
         if(this.shareService.create_value.title!=""){
+          //read the value
+          //then push item to cards array
           this.createValue = this.shareService.create_value;
-          //console.log(this.createValue);
           this.value.push(this.createValue);
-          //this.shareService.mockValueService.push(this.createValue);
-          //console.log(this.shareService.mockValueService)
         }
       }
-      // this.itemcmt = this.createValue.itemComment;
-      // if(this.createValue!=''){
-      //   if(this.createValue.itemName!=''||this.createValue.itemColor!='')
-      //   {
-      //     this.itemname = this.createValue.itemName;
-      //     this.itemcolor = this.createValue.itemColor;
-      //     this.value.push({ name: this.itemname, color: this.itemcolor, itemcmt: this.itemcmt })
-      //   }
-      // }
+      //reset the value
       this.shareService.create_value = {id:0, title:"",img:""}
-      // this.shareService.getvalue=''
-      //console.log(this.itemname)
   }
+
   //onselect
   onSelect(value: any) {
     this.router.navigate(['/edit', this.value.indexOf(value)]);
+    //send data of selected item to edit window
     this.shareService.edit_value = {id: value.id, title: value.title, img: value.img};
-    //this.itemId = this.value.indexOf(value);
-    //this.shareService.name = value.name;
-    //this.shareService.color = value.color;
-    //this.shareService.id = this.value.indexOf(value)
-    //alert(this.shareService.id)
-    //console.log(this.value.indexOf(value))
   }
 
   //update info
   updateInfo(index:number){
-    //console.log(this.shareService.update_value)
-    //console.log(this.value[index])
     if(this.shareService.update_value!=undefined)
     {
       if(this.shareService.update_value.title!=undefined)
@@ -141,50 +92,22 @@ export class DashboardMatComponent {
       }
     }
   }
-  // updateInfo(index: number) {
-  //   //this.shareService.cast.subscribe(test_value => this.test_value = this.test_value)
-  //   //console.log(this.test_value)
-  //   //console.log(this.value[index].color)
-  //   if(this.test_value!='')
-  //   {
-  //     this.value[index].name = this.test_value;
-  //   }
-
-  //   if (this.shareService.editvalue!='') {
-  //     this.editValue = this.shareService.editvalue;
-  //     if(this.editValue.itemName!=''){
-  //       //this.value[index].name = this.editValue.itemName;
-  //       this.value[index].name = this.test_value;
-  //     }
-  //     if(this.editValue.itemColor!=''){
-  //       this.value[index].color = this.editValue.itemColor;
-  //     }
-  //     //console.log(index)
-  //   }
-  //   //this.shareService.cast.subscribe(test_value => this.test_value = this.test_value)
-  //   //alert(this.editValue.itemName)
-  //   //console.log(this.shareService.editvalue)
-  //   //console.log(this.shareService.getvalue)
-  // }
-
+  
   //remove item
   removeItem(index:number){
-    //console.log(this.value)
     this.value.splice(index,1)
   }
 
   search(){
     this.activeRoute.params.subscribe(params => {
       if(params['searchTerm']){
+        //filter the item with the matching name
+        //then update into the value (this is shown in the dashboard)
         this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(params['searchTerm'].toLowerCase()));
-        //console.log(this.value)
-        if(this.value.length==0)
+        if(this.value.length==0) //if nothing found
         {
           alert("cannot find item")
         }
-        //this.shareService.searchTerm = params['searchTerm']
-        //this.value.filter(value => value.title.toLowerCase().includes(params['searchTerm'].toLowerCase()));
-        //console.log(params['searchTerm'])
       }
     })
   }
