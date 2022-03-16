@@ -39,3 +39,13 @@
 .dashboard-card-content .button-class button{
   margin: 10px;
 }
+
+.button-center{
+  display: flex;
+  justify-content: center;
+}
+
+.button-center .add-button {
+  border: none;
+  background-color: transparent; 
+}
