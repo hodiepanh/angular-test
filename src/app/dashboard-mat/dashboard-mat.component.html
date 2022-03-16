@@ -1,7 +1,9 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <button mat-stroked-button color="primary" routerLink="/create">Add new item</button>
-  <mat-grid-list cols="2" rowHeight="350px">
+  <div class="button-center">
+    <button class="add-button" mat-stroked-button color="primary" routerLink="/create">Add new item</button>
+  </div>
+  <mat-grid-list cols="4" rowHeight="350px">
     <mat-grid-tile *ngFor="let detail of value, let i = index">
       <mat-card class="dashboard-card">
         <mat-card-header>
