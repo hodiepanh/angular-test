@@ -4,7 +4,6 @@
 
 mat-grid-tile {
   width: 20%;
-
 }
 
 .dashboard-card {
@@ -13,6 +12,14 @@ mat-grid-tile {
   left: 15px;
   right: 15px;
   bottom: 15px;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.dashboard-card .title {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .more-button {
@@ -21,6 +28,7 @@ mat-grid-tile {
   right: 10px;
 }
 
+
 .dashboard-card-content {
   text-align: center;
 }
@@ -28,7 +36,7 @@ mat-grid-tile {
 .dashboard-card-content div {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
 }
 
@@ -37,7 +45,6 @@ mat-grid-tile {
 }
 
 .dashboard-card-content:hover .button-class {
-  display: inline;
   visibility: visible;
 }
 
