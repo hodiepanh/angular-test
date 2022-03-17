@@ -70,13 +70,13 @@ mat-grid-tile {
 }
 
 .dashboard-card-content .button-class {
-  visibility: visible;
+  visibility: hidden;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.dashboard-card-content:hover .button-class {
+.dashboard-card-inside:hover .button-class {
   visibility: visible;
 }
 
