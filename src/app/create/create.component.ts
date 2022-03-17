@@ -24,7 +24,14 @@ export class CreateComponent implements OnInit {
   }
 
   getFormValue(  ){
-    this.shareService.create_value = {id: this.form_id, title:this.formCreate.value.itemTitle,img:this.formCreate.value.itemImage}
+    if(this.formCreate.value.itemTitle==""){
+      alert("please enter item name")
+    }
+    else {
+      this.shareService.create_value = {id: this.form_id, title:this.formCreate.value.itemTitle,img:this.formCreate.value.itemImage}
+      alert("item has been added, please return to dashboard")
+
+    }
   }
 
 }
