@@ -1,5 +1,20 @@
+.searchbar-wrapper
+{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 50px;
+}
+.searchbar {
+  padding: 5px;
+  width: 30vw;
+}
+
 .grid-container {
-  margin: 20px;
+  margin: 10px 50px;
+}
+
+mat-grid-tile {
+  width: 20%;
 }
 
 .dashboard-card {
@@ -8,6 +23,18 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.dashboard-card .title {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-card-inside {
+  background-color: lightgray;
 }
 
 .more-button {
@@ -16,6 +43,7 @@
   right: 10px;
 }
 
+
 .dashboard-card-content {
   text-align: center;
 }
@@ -23,19 +51,56 @@
 .dashboard-card-content div {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
+}
+
+.dashboard-card-inside:hover {
+  background-color: black;
 }
 
 .dashboard-card-content .button-class {
   visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 80px 0px;
 }
 
 .dashboard-card-content:hover .button-class {
-  display: inline;
   visibility: visible;
 }
 
-.dashboard-card-content .button-class button{
-  margin: 10px;
+.dashboard-card-content .button-class .edit-button{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.dashboard-card-content .button-class .edit-button:hover{
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+}
+
+.dashboard-card-content .button-class .remove-button{
+  background-color: transparent;
+  border: 1px solid red;
+  color: red;
+}
+
+.dashboard-card-content .button-class .remove-button:hover{
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+}
+
+.button-center{
+  display: flex;
+  justify-content: center;
+}
+
+.button-center .add-button {
+  border: none;
+  background-color: transparent; 
 }

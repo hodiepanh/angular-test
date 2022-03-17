@@ -8,7 +8,6 @@ const routes: Routes = [
   {path: "dashboard", component:DashboardMatComponent},
   {path: "edit/:id", component: EditComponent  },
   {path: "create", component: CreateComponent },
-  {path: "search/:searchTerm", component: DashboardMatComponent},
   {path: "",component: DashboardMatComponent}
 ];
 

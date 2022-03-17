@@ -1,29 +1,22 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <button mat-stroked-button color="primary" routerLink="/create">Add new item</button>
-  <mat-grid-list cols="2" rowHeight="350px">
+  <div class="searchbar-wrapper">
+    <input class="searchbar" type="text" placeholder="Type something to search..." [(ngModel)]="searchTerm" (change)="search()">
+  </div>
+  <div class="button-center">
+    <button class="add-button" mat-stroked-button color="primary" routerLink="/create">Add new item</button>
+  </div>
+  <mat-grid-list cols="4" rowHeight="300px">
     <mat-grid-tile *ngFor="let detail of value, let i = index">
       <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            <div>Item ID: {{detail.id}}</div>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Name: {{detail.title}}</div>
-          <div>Image: {{detail.img}}</div>
-          <div class ="button-class">
-            <button mat-stroked-button color="primary" (click)="onSelect(detail)">Edit</button>
-            <button mat-stroked-button color="primary" (click)="removeItem(i)">Remove</button>
-          </div>
-        </mat-card-content>
+        <mat-card class="dashboard-card-inside">
+          <mat-card-content class="dashboard-card-content">
+            <div class ="button-class">
+              <button class="edit-button" mat-stroked-button color="primary" (click)="onSelect(detail)">Edit</button>
+              <button class="remove-button" mat-stroked-button color="primary" (click)="removeItem(i)">Remove</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <div class="title">{{detail.title}}</div>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
