@@ -31,8 +31,6 @@ export class EditComponent implements OnInit {
       itemTitle: [this.inputEdit.title, Validators.required],
       //itemImage: [this.inputEdit.img, Validators.nullValidator]
     })
-  //reset
-  this.shareService.update_value = {id: 0, title:"",img:""}
   }
 
   updateEditValue(index:number){
