@@ -35,6 +35,9 @@ mat-grid-tile {
 
 .dashboard-card-inside {
   background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .more-button {
@@ -55,6 +58,10 @@ mat-grid-tile {
 
 }
 
+.dashboard-card-inside {
+  aspect-ratio: 1/1;
+}
+
 .dashboard-card-inside:hover {
   background-color: black;
 }
@@ -63,18 +70,19 @@ mat-grid-tile {
   visibility: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 80px 0px;
+  width: 100%;
 }
 
-.dashboard-card-content:hover .button-class {
+.dashboard-card-inside:hover .button-class {
   visibility: visible;
+  width: 100%;
 }
 
 .dashboard-card-content .button-class .edit-button{
   background-color: transparent;
   border: 1px solid white;
   color: white;
+  margin: 0 10px;
 }
 
 .dashboard-card-content .button-class .edit-button:hover{
