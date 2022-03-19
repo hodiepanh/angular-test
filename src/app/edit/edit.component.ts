@@ -31,14 +31,19 @@ export class EditComponent implements OnInit {
       itemTitle: [this.inputEdit.title, Validators.required],
       itemImage: [this.inputEdit.img, Validators.nullValidator]
     })
-  //reset
-  this.shareService.update_value = {id: 0, title:"",img:""}
   }
 
   updateEditValue(index:number){
     //pass the edited data
     //send to dashboard
-    this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
-    this.shareService.update_value= this.editNewItem;
+    if(this.formEdit.value.itemTitle=="")
+    {
+      alert("please enter new name")
+    }
+    else{
+      this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
+      this.shareService.update_value= this.editNewItem;
+      alert ("item has been updated, please return to dashboard")
+    }
   }
 }

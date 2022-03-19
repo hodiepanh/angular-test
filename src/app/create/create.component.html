@@ -1,15 +1,18 @@
-<h1>Create new item</h1>
-<form [formGroup]="formCreate">
-    <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input formControlName="itemTitle"
-        matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Image</mat-label>
-        <textarea formControlName="itemImage"
-        matInput></textarea>
-    </mat-form-field>
-</form>
-<button mat-flat-button color="primary"
-(click)="getFormValue()" routerLink="/dashboard">Add</button>
+<div class="form-wrapper">
+    <form [formGroup]="formCreate">
+        <mat-form-field appearance="fill">
+            <div>Title</div>
+            <input class ="create-title" formControlName="itemTitle"
+            placeholder="Add title here">
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Image</mat-label>
+            <textarea formControlName="itemImage"
+            matInput></textarea>
+        </mat-form-field> -->
+    </form>
+    <div class="button-class">
+        <button class="add-button" mat-flat-button color="primary"
+        (click)="getFormValue()" routerLink="/dashboard">Add</button>
+    </div>
+</div>
