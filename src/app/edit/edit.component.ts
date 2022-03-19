@@ -43,7 +43,7 @@ export class EditComponent implements OnInit {
     else{
       this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
       this.shareService.update_value= this.editNewItem;
-      alert ("item has been updated, please return to dashboard")
+      //alert ("item has been updated, please return to dashboard")
     }
   }
 }
