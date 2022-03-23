@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { SearchComponent } from './header/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardMatComponent } from './dashboard-mat/dashboard-mat.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -30,10 +29,9 @@ import { SharedServiceService } from './shared-service.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchComponent,
     DashboardMatComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     BrowserModule,
