@@ -49,14 +49,15 @@ mat-grid-tile {
 
 .dashboard-card-content {
   text-align: center;
+  width: 100%;
 }
 
 .dashboard-card-content div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
+
 
 .dashboard-card-inside {
   aspect-ratio: 1/1;
@@ -96,6 +97,7 @@ mat-grid-tile {
   border: 1px solid red;
   color: red;
 }
+
 
 .dashboard-card-content .button-class .remove-button:hover{
   background-color: red;

@@ -29,7 +29,7 @@ export class EditComponent implements OnInit {
     this.inputEdit = this.shareService.edit_value
     this.formEdit = this.formBuilder.group({
       itemTitle: [this.inputEdit.title, Validators.required],
-      itemImage: [this.inputEdit.img, Validators.nullValidator]
+      //itemImage: [this.inputEdit.img, Validators.nullValidator]
     })
   }
 
