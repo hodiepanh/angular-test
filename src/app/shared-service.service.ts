@@ -16,6 +16,9 @@ export class SharedServiceService {
   id!:number;
   update_value!:Item;
 
+  //searchterm
+  searchTerm!:string;
+
   mockValueService: Item[]=[
     { id:0, title: "red", img: "imageOne" },
     { id:1, title: "blue", img: "imgTwo" }
