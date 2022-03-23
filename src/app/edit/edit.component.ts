@@ -47,7 +47,6 @@ export class EditComponent implements OnInit {
       this.shareService.update_value= this.editNewItem;
       //alert ("item has been updated, please return to dashboard")
       this.router.navigate(['/dashboard']);
-
     }
   }
 }
