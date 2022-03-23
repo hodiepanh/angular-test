@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item } from '../item-model/item-interface';
@@ -14,7 +14,8 @@ export class EditComponent implements OnInit {
   formEdit!: FormGroup;
   constructor(private activeRoute: ActivatedRoute,
     private shareService: SharedServiceService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
   
   //to pass into the update function
   id!:number;
@@ -43,7 +44,7 @@ export class EditComponent implements OnInit {
     else{
       this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
       this.shareService.update_value= this.editNewItem;
-      //alert ("item has been updated, please return to dashboard")
+      this.router.navigate(['/dashboard'])
     }
   }
 }
