@@ -1,3 +1,9 @@
+mat-tool-bar {
+  background-color: beige;
+}
+.title {
+  padding: 10px 50px;
+}
 .example-spacer {
     flex: 1 1 auto;
   }
