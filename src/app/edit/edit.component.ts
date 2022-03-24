@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item } from '../item-model/item-interface';
@@ -31,7 +31,7 @@ export class EditComponent implements OnInit {
     this.inputEdit = this.shareService.edit_value
     this.formEdit = this.formBuilder.group({
       itemTitle: [this.inputEdit.title, Validators.required],
-      itemImage: [this.inputEdit.img, Validators.nullValidator]
+      //itemImage: [this.inputEdit.img, Validators.nullValidator]
     })
   }
 
@@ -45,7 +45,6 @@ export class EditComponent implements OnInit {
     else{
       this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
       this.shareService.update_value= this.editNewItem;
-      //alert ("item has been updated, please return to dashboard")
       this.router.navigate(['/dashboard']);
     }
   }
