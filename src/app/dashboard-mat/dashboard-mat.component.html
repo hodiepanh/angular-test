@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div class="searchbar-wrapper">
-    <input class="searchbar" type="text" placeholder="Type something to search..." [(ngModel)]="searchTerm" (change)="search()">
+    <input class="searchbar" type="text" placeholder="Type something to search..." [formControl]="searchItem">
   </div>
   <div class="button-center">
     <button class="add-button" mat-stroked-button color="primary" routerLink="/create">Add new item</button>
