@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { SharedServiceService } from '../shared-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Item } from '../item-model/item-interface';
-
-
+import { timer } from 'rxjs';
+import { Validators, FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 @Component({
   selector: 'app-dashboard-mat',
   templateUrl: './dashboard-mat.component.html',
@@ -32,18 +33,16 @@ export class DashboardMatComponent {
       ];
     })
   );
-
+  
   //get data of created item
   createValue!:Item;
 
-  //searchterm
-  searchTerm!:string;
+  searchItem = new FormControl('', Validators.required); 
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private shareService: SharedServiceService,
-    private router: Router,
-    private activeRoute: ActivatedRoute) {
+    private router: Router) {
 
     
       //auto update created item
@@ -53,6 +52,11 @@ export class DashboardMatComponent {
     //auto update edited item
     this.updateInfo(this.shareService.id)
 
+    //search auto using debounce time
+    this.searchItem.valueChanges.pipe(debounceTime(500))
+    .subscribe((s)=>{
+      this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(this.searchItem.value))
+    });
   }
 
   //pass the data into the dashboard
@@ -97,10 +101,5 @@ export class DashboardMatComponent {
   //remove item
   removeItem(index:number){
     this.value.splice(index,1)
-  }
-
-  //search
-  search(){
-    this.value = this.shareService.getAll().filter(item => item.title.toLowerCase().includes(this.searchTerm))
   }
 }
