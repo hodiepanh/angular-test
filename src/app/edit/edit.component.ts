@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item } from '../item-model/item-interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -44,7 +45,7 @@ export class EditComponent implements OnInit {
     else{
       this.editNewItem = {id: index, title:this.formEdit.value.itemTitle, img:this.formEdit.value.itemImage}
       this.shareService.update_value= this.editNewItem;
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/dashboard']);
     }
   }
 }
